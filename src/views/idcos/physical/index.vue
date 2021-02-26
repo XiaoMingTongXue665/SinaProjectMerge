@@ -18,40 +18,40 @@
                 <el-button type="primary" @click="search">查询</el-button>
               </el-form-item>
               <el-form-item
-                style="float: right"
+                  style="float: right"
               >
                 <el-button type="primary" @click="refresh" :loading="ButtonLoading">刷新</el-button>
               </el-form-item>
             </el-form>
             <el-table
-              v-loading="TableLoading"
-              :data="articles"
-              element-loading-text="Loading"
-              border
-              fit
-              highlight-current-row
-              @selection-change="handleSelectionChange"
+                v-loading="TableLoading"
+                :data="articles"
+                element-loading-text="Loading"
+                border
+                fit
+                highlight-current-row
+                @selection-change="handleSelectionChange"
             >
               <el-table-column
-                type="selection"
-                width="55">
+                  type="selection"
+                  width="55">
               </el-table-column>
               <el-table-column label="盘点号" width="110" align="center">
                 <template slot-scope="scope">
                   {{ scope.row.asset_number }}
                 </template>
               </el-table-column>
-              <el-table-column label="管理卡IP" width="200" align="center">
+              <el-table-column label="管理卡IP" width="180" align="center">
                 <template slot-scope="scope">
                   <span>{{ scope.row.card_ip }}</span>
                 </template>
               </el-table-column>
-              <el-table-column label="内务IP" width="200" align="center">
+              <el-table-column label="内务IP" width="180" align="center">
                 <template slot-scope="scope">
                   {{ scope.row.intranet_ip }}
                 </template>
               </el-table-column>
-              <el-table-column label="外网IP" width="200" align="center">
+              <el-table-column label="外网IP" width="180" align="center">
                 <template slot-scope="scope">
                   {{ scope.row.public_ip }}
                 </template>
@@ -69,6 +69,20 @@
               <el-table-column label="管理员" width="110" align="auto">
                 <template slot-scope="scope">
                   {{ scope.row.administrator }}
+                </template>
+              </el-table-column>
+              <el-table-column label="状态" width="110" align="auto">
+                <template slot-scope="scope">
+                  <div class="tag-group">
+                    <el-tag
+                        v-for="item in items"
+                        :key="item.label"
+                        :type="item.type"
+                        size="medium"
+                        effect="dark">
+                      {{ item.label }}
+                    </el-tag>
+                  </div>
                 </template>
               </el-table-column>
               <el-table-column label="操作" align="center" width="300" class-name="small-padding fixed-width">
@@ -97,13 +111,13 @@
               </div>
               <div class="block" style="margin-top: 20px; float: right">
                 <el-pagination
-                  @size-change="handleSizeChange"
-                  @current-change="handleCurrentChange"
-                  :current-page="currentPage"
-                  :page-sizes="[10, 100, 200, 400]"
-                  :page-size="10"
-                  layout="total, sizes, prev, pager, next, jumper"
-                  :total='total'>
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
+                    :current-page="currentPage"
+                    :page-sizes="[10, 100, 200, 400]"
+                    :page-size="10"
+                    layout="total, sizes, prev, pager, next, jumper"
+                    :total='total'>
                 </el-pagination>
               </div>
             </div>
@@ -117,40 +131,40 @@
                 <el-button type="primary" @click="search">查询</el-button>
               </el-form-item>
               <el-form-item
-                style="float: right"
+                  style="float: right"
               >
                 <el-button type="primary" @click="refresh">刷新</el-button>
               </el-form-item>
             </el-form>
             <el-table
-              v-loading="TableLoading"
-              :data="articles"
-              element-loading-text="Loading"
-              border
-              fit
-              highlight-current-row
-              @selection-change="handleSelectionChange"
+                v-loading="TableLoading"
+                :data="articles"
+                element-loading-text="Loading"
+                border
+                fit
+                highlight-current-row
+                @selection-change="handleSelectionChange"
             >
               <el-table-column
-                type="selection"
-                width="55">
+                  type="selection"
+                  width="55">
               </el-table-column>
               <el-table-column label="盘点号" width="110" align="center">
                 <template slot-scope="scope">
                   {{ scope.row.asset_number }}
                 </template>
               </el-table-column>
-              <el-table-column label="管理卡IP" width="200" align="center">
+              <el-table-column label="管理卡IP" width="180" align="center">
                 <template slot-scope="scope">
                   <span>{{ scope.row.card_ip }}</span>
                 </template>
               </el-table-column>
-              <el-table-column label="内务IP" width="200" align="center">
+              <el-table-column label="内务IP" width="180" align="center">
                 <template slot-scope="scope">
                   {{ scope.row.intranet_ip }}
                 </template>
               </el-table-column>
-              <el-table-column label="外网IP" width="200" align="center">
+              <el-table-column label="外网IP" width="180" align="center">
                 <template slot-scope="scope">
                   {{ scope.row.public_ip }}
                 </template>
@@ -174,10 +188,11 @@
                 <template slot-scope="scope">
                   <div class="tag-group">
                     <el-tag
-                      v-for="item in items"
-                      :key="item.label"
-                      :type="item.type"
-                      effect="dark">
+                        v-for="item in items"
+                        :key="item.label"
+                        :type="item.type"
+                        size="medium"
+                        effect="dark">
                       {{ item.label }}
                     </el-tag>
                   </div>
@@ -209,13 +224,13 @@
               </div>
               <div class="block" style="margin-top: 20px; float: right">
                 <el-pagination
-                  @size-change="handleSizeChange"
-                  @current-change="handleCurrentChange"
-                  :current-page="currentPage"
-                  :page-sizes="[10, 100, 200, 400]"
-                  :page-size="10"
-                  layout="total, sizes, prev, pager, next, jumper"
-                  :total='total'>
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
+                    :current-page="currentPage"
+                    :page-sizes="[10, 100, 200, 400]"
+                    :page-size="10"
+                    layout="total, sizes, prev, pager, next, jumper"
+                    :total='total'>
                 </el-pagination>
               </div>
             </div>
@@ -317,13 +332,21 @@
           product: ''
         },
         // 是否显示 Dialog
-        dialogFormVisible: true,
+        dialogFormVisible: false,
         multipleSelection: [],
         formInline: {
           user: '',
           region: ''
         },
-        ruleForm: {},
+        ruleForm: {
+          asset_number: '',
+          card_ip: '',
+          intranet_ip: '',
+          public_ip: '',
+          idc: '',
+          administrator: '',
+          product: ''
+        },
         // 表单项规则
         rules: {
           os: [
@@ -347,7 +370,7 @@
         statusList: [],
         items: [
           {type: 'success', label: '运行中'},
-          {type: 'danger', label: '关机'},
+          // {type: 'danger', label: '关机'},
         ]
       }
     },
@@ -414,7 +437,12 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('提交成功!');
+            this.dialogFormVisible = false
+            this.$message({
+              showClose: true,
+              message: '提交成功',
+              type: 'success',
+            });
           } else {
             console.log('error 提交失败!');
             return false;
@@ -433,8 +461,17 @@
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
+          this.$message({
+            showClose: true,
+            message: '确认成功',
+            type: 'success',
+          });
           console.log('确认成功')
         }).catch((error) => {
+            this.$message({
+              showClose: true,
+              message: '取消成功'
+            });
             console.log('取消成功')
           }
         )
@@ -462,7 +499,11 @@
         console.log(type)
         let ipList = []
         if (this.multipleSelection.length === 0) {
-          return false
+          this.$message({
+            showClose: true,
+            message: '请至少选择一条数据',
+            type: 'warning'
+          });
         } else {
           this.multipleSelection.forEach((item) => {
             ipList.push(item.card_ip)
@@ -473,8 +514,17 @@
             cancelButtonText: '取消',
             type: 'warning'
           }).then(() => {
+            this.$message({
+              showClose: true,
+              message: '确认成功',
+              type: 'success'
+            });
             console.log('确认成功')
           }).catch((error) => {
+              this.$message({
+                showClose: true,
+                message: '取消成功'
+              });
               console.log('取消成功')
             }
           )
